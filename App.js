@@ -3,6 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
+
 import RegistrationScreen from './screens/RegistrationScreen';
 
 SplashScreen.preventAutoHideAsync();
@@ -28,4 +29,3 @@ export default function App() {
     <RegistrationScreen />
   );
 }
-
