@@ -1,11 +1,13 @@
 import { StyleSheet, TextInput, View } from "react-native"
 import { colors } from "../styles/global";
 
-const Input = ({ placeholder, outerStyles, rightButton}) => { 
+const Input = ({ placeholder, outerStyles, isSecure, rightButton}) => { 
     return (
         <View style={[styles.input, outerStyles]}>
             <TextInput
-            placeholder={placeholder}
+                placeholder={placeholder}
+                secureTextEntry={isSecure}
+                autoCapitalize="none"
             />
             {rightButton}
         </View>
