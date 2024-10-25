@@ -61,7 +61,7 @@ const RegistrationScreen = () => {
 
   const showButton = (
     <TouchableOpacity onPress={showPassword}>
-      <Text style={[styles.baseButonText, styles.passwordButtonText]}>
+      <Text style={[styles.baseButtonText, styles.passwordButtonText]}>
         {isPasswordVisible ? "Показати" : "Сховати"}
       </Text>
     </TouchableOpacity>
@@ -69,66 +69,71 @@ const RegistrationScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === "ios" ? "height" : "padding"}
-      >
+      <View style={{ flex: 1 }}>
         <Image
           source={require("../assets/images/bg_image.png")}
           resizeMode="cover"
           style={styles.image_bg}
         />
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior={Platform.OS === "ios" ? "height" : "padding"}
+        >
+          <View style={styles.formContainer}>
+            <View style={styles.avatarWrapper}>
+              <Image
+                source={require("../assets/images/avatar_icon.png")}
+                resizeMode="cover"
+                style={styles.avatarIcon}
+              />
+              <TouchableOpacity style={styles.avatarIconButton}>
+                <Icon
+                  name="plus"
+                  size="18"
+                  style={{ color: colors.text_grey }}
+                />
+              </TouchableOpacity>
+            </View>
 
-        <View style={styles.formContainer}>
-          <View style={styles.avatarWrapper}>
-            {/* <Image
-              source={require("../assets/images/avatar_icon.png")}
-              resizeMode="cover"
-              style={styles.avatarIcon}
-            /> */}
-            <TouchableOpacity style={styles.avatarIconButton}>
-              <Icon name="plus" size="18" style={{ color: colors.accent }} />
-            </TouchableOpacity>
+            <Text style={styles.title}>Реєстрація</Text>
+
+            <View style={styles.innerContainer}>
+              <Input
+                value={login}
+                onChangeText={handleLoginChange}
+                placeholder="Логін"
+              />
+              <Input
+                value={email}
+                onChangeText={handleEmailChange}
+                placeholder="Адреса електронної пошти"
+              />
+              <Input
+                value={password}
+                onChangeText={handlePasswordChange}
+                placeholder="Пароль"
+                rightButton={showButton}
+                isSecure={isPasswordVisible}
+                outerStyles={styles.passwordButton}
+              />
+            </View>
+            <Button buttonStyle={styles.regitrationButton} onPress={onSingUp}>
+              <Text style={[styles.baseButtonText, styles.loginButtonText]}>
+                Зареєстуватися
+              </Text>
+            </Button>
+
+            <View style={styles.singUpContainer}>
+              <Text style={styles.baseButtonText}>
+                Вже є акаунт?{" "}
+                <TouchableWithoutFeedback onPress={onLogin}>
+                  <Text style={styles.singUpText}>Увійти</Text>
+                </TouchableWithoutFeedback>
+              </Text>
+            </View>
           </View>
-
-          <Text style={styles.title}>Реєстрація</Text>
-
-          <View style={styles.innerContainer}>
-            <Input
-              value={login}
-              onChangeText={handleLoginChange}
-              placeholder="Логін"
-            />
-            <Input
-              value={email}
-              onChangeText={handleEmailChange}
-              placeholder="Адреса електронної пошти"
-            />
-            <Input
-              value={password}
-              onChangeText={handlePasswordChange}
-              placeholder="Пароль"
-              rightButton={showButton}
-              isSecure={isPasswordVisible}
-              outerStyles={styles.passwordButton}
-            />
-          </View>
-          <Button buttonStyle={styles.regitrationButton} onPress={onSingUp}>
-            <Text style={[styles.baseButtonText, styles.loginButtonText]}>
-              Зареєстуватися
-            </Text>
-          </Button>
-
-          <View style={styles.singUpContainer}>
-            <Text style={styles.baseButtonText}>
-              Вже є акаунт?{" "}
-              <TouchableWithoutFeedback onPress={onLogin}>
-                <Text style={styles.singUpText}>Увійти</Text>
-              </TouchableWithoutFeedback>
-            </Text>
-          </View>
-        </View>
-      </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      </View>
     </TouchableWithoutFeedback>
   );
 };
@@ -169,7 +174,7 @@ const styles = StyleSheet.create({
   },
   avatarIconButton: {
     position: "absolute",
-    // transform: [{ rotate: "-45deg" }],
+    transform: [{ rotate: "-45deg" }],
     top: 80,
     right: -12,
     width: 25,
@@ -179,7 +184,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.white,
-    borderColor: colors.accent,
+    borderColor: colors.text_grey,
     borderRadius: 100,
     borderWidth: 1,
   },
