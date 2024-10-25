@@ -13,6 +13,7 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
+import Icon from "react-native-vector-icons/AntDesign";
 import { colors } from "../styles/global";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -24,13 +25,6 @@ const RegistrationScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
-
-  // const [inputQuery, setInputQuery] = useState({login: "", email: "", password: ""});
-
-  // const handleInputChange = () => {
-  //     console.log("get input data")
-  //     setInputQuery((prev) => ({...prev, [input]:value}))
-  // }
 
   const handleLoginChange = () => {
     console.log("login input");
@@ -66,6 +60,14 @@ const RegistrationScreen = () => {
   //     navigator.navigate("Start")
   // };
 
+  const onSingUp = () => {
+    console.log("Зареєстуватися pressed");
+  };
+
+  const onLogin = () => {
+    console.log("Welcome!");
+  };
+
   const showButton = (
     <TouchableOpacity onPress={showPassword}>
       <Text style={[styles.baseButonText, styles.passwordButtonText]}>
@@ -87,6 +89,17 @@ const RegistrationScreen = () => {
         />
 
         <View style={styles.formContainer}>
+          <View style={styles.avatarWrapper}>
+            <Image
+              source={require("../assets/images/avatar_icon.png")}
+              resizeMode="cover"
+              style={styles.avatarIcon}
+            />
+            <TouchableOpacity style={styles.avatarIconButton}>
+              <Icon name="plus" size="18" style={{ color: colors.text_grey }} />
+            </TouchableOpacity>
+          </View>
+
           <Text style={styles.title}>Реєстрація</Text>
 
           <View style={styles.innerContainer}>
@@ -109,7 +122,7 @@ const RegistrationScreen = () => {
               isSecure={isPasswordVisible}
             />
           </View>
-          <Button buttonStyle={styles.regitrationButton} onPress={() => {}}>
+          <Button buttonStyle={styles.regitrationButton} onPress={onSingUp}>
             <Text style={[styles.baseButonText, styles.loginButtonText]}>
               Зареєстуватися
             </Text>
@@ -118,7 +131,7 @@ const RegistrationScreen = () => {
           <View style={styles.singUpContainer}>
             <Text style={styles.baseButonText}>
               Вже є акаунт?{" "}
-              <TouchableWithoutFeedback>
+              <TouchableWithoutFeedback onPress={onLogin}>
                 <Text style={styles.singUpText}>Увійти</Text>
               </TouchableWithoutFeedback>
             </Text>
@@ -134,7 +147,6 @@ export default RegistrationScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
     justifyContent: "center",
   },
   innerContainer: {
@@ -147,6 +159,39 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  avatarWrapper: {
+    position: "absolute",
+    top: -10,
+    left: "50%",
+    transform: [{ translateX: -50 }, { translateY: -50 }],
+    width: 120,
+    height: 120,
+    backgroundColor: colors.light_grey,
+    borderRadius: 16,
+  },
+  avatarIcon: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    width: "100%",
+    height: "100%",
+  },
+  avatarIconButton: {
+    position: "absolute",
+    transform: [{ rotate: "-45deg" }],
+    top: 80,
+    right: -12,
+    width: 25,
+    height: 25,
+
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.white,
+    borderColor: colors.border_grey,
+    borderRadius: 100,
+    borderWidth: 1,
+  },
   text: {
     alignSelf: "center",
     color: colors.white,
@@ -157,7 +202,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: colors.white,
     width: SCREEN_WIDTH,
-    height: "60%",
+    height: "65%",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingTop: 92,
