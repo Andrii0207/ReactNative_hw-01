@@ -69,66 +69,67 @@ const RegistrationScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === "ios" ? "height" : "padding"}
-      >
+      <View style={{ flex: 1 }}>
         <Image
           source={require("../assets/images/bg_image.png")}
           resizeMode="cover"
           style={styles.image_bg}
         />
-
-        <View style={styles.formContainer}>
-          <View style={styles.avatarWrapper}>
-            {/* <Image
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior={Platform.OS === "ios" ? "height" : "padding"}
+        >
+          <View style={styles.formContainer}>
+            <View style={styles.avatarWrapper}>
+              {/* <Image
               source={require("../assets/images/avatar_icon.png")}
               resizeMode="cover"
               style={styles.avatarIcon}
             /> */}
-            <TouchableOpacity style={styles.avatarIconButton}>
-              <Icon name="plus" size="18" style={{ color: colors.accent }} />
-            </TouchableOpacity>
-          </View>
+              <TouchableOpacity style={styles.avatarIconButton}>
+                <Icon name="plus" size="18" style={{ color: colors.accent }} />
+              </TouchableOpacity>
+            </View>
 
-          <Text style={styles.title}>Реєстрація</Text>
+            <Text style={styles.title}>Реєстрація</Text>
 
-          <View style={styles.innerContainer}>
-            <Input
-              value={login}
-              onChangeText={handleLoginChange}
-              placeholder="Логін"
-            />
-            <Input
-              value={email}
-              onChangeText={handleEmailChange}
-              placeholder="Адреса електронної пошти"
-            />
-            <Input
-              value={password}
-              onChangeText={handlePasswordChange}
-              placeholder="Пароль"
-              rightButton={showButton}
-              isSecure={isPasswordVisible}
-              outerStyles={styles.passwordButton}
-            />
-          </View>
-          <Button buttonStyle={styles.regitrationButton} onPress={onSingUp}>
-            <Text style={[styles.baseButtonText, styles.loginButtonText]}>
-              Зареєстуватися
-            </Text>
-          </Button>
+            <View style={styles.innerContainer}>
+              <Input
+                value={login}
+                onChangeText={handleLoginChange}
+                placeholder="Логін"
+              />
+              <Input
+                value={email}
+                onChangeText={handleEmailChange}
+                placeholder="Адреса електронної пошти"
+              />
+              <Input
+                value={password}
+                onChangeText={handlePasswordChange}
+                placeholder="Пароль"
+                rightButton={showButton}
+                isSecure={isPasswordVisible}
+                outerStyles={styles.passwordButton}
+              />
+            </View>
+            <Button buttonStyle={styles.regitrationButton} onPress={onSingUp}>
+              <Text style={[styles.baseButtonText, styles.loginButtonText]}>
+                Зареєстуватися
+              </Text>
+            </Button>
 
-          <View style={styles.singUpContainer}>
-            <Text style={styles.baseButtonText}>
-              Вже є акаунт?{" "}
-              <TouchableWithoutFeedback onPress={onLogin}>
-                <Text style={styles.singUpText}>Увійти</Text>
-              </TouchableWithoutFeedback>
-            </Text>
+            <View style={styles.singUpContainer}>
+              <Text style={styles.baseButtonText}>
+                Вже є акаунт?{" "}
+                <TouchableWithoutFeedback onPress={onLogin}>
+                  <Text style={styles.singUpText}>Увійти</Text>
+                </TouchableWithoutFeedback>
+              </Text>
+            </View>
           </View>
-        </View>
-      </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      </View>
     </TouchableWithoutFeedback>
   );
 };
