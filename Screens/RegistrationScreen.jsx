@@ -51,15 +51,6 @@ const RegistrationScreen = () => {
     setIsPasswordVisible(prev => !prev);
   };
 
-  // const singUp = () => {
-  //     Alert.alert("Credentials", `${login} + ${email}+${password}`);
-  //     console.log("login ->", login)
-  //     console.log("email ->", email)
-  //     console.log("password ->", password)
-  //     reset();
-  //     navigator.navigate("Start")
-  // };
-
   const onSingUp = () => {
     console.log("Зареєстуватися pressed");
   };
@@ -80,7 +71,7 @@ const RegistrationScreen = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
         style={styles.container}
-        behavior={Platform.OS == "ios" ? "padding" : "height"}
+        behavior={Platform.OS === "ios" ? "height" : "padding"}
       >
         <Image
           source={require("../assets/images/bg_image.png")}
@@ -90,13 +81,13 @@ const RegistrationScreen = () => {
 
         <View style={styles.formContainer}>
           <View style={styles.avatarWrapper}>
-            <Image
+            {/* <Image
               source={require("../assets/images/avatar_icon.png")}
               resizeMode="cover"
               style={styles.avatarIcon}
-            />
+            /> */}
             <TouchableOpacity style={styles.avatarIconButton}>
-              <Icon name="plus" size="18" style={{ color: colors.text_grey }} />
+              <Icon name="plus" size="18" style={{ color: colors.accent }} />
             </TouchableOpacity>
           </View>
 
@@ -118,18 +109,18 @@ const RegistrationScreen = () => {
               onChangeText={handlePasswordChange}
               placeholder="Пароль"
               rightButton={showButton}
-              outerStyles={styles.passwordButton}
               isSecure={isPasswordVisible}
+              outerStyles={styles.passwordButton}
             />
           </View>
           <Button buttonStyle={styles.regitrationButton} onPress={onSingUp}>
-            <Text style={[styles.baseButonText, styles.loginButtonText]}>
+            <Text style={[styles.baseButtonText, styles.loginButtonText]}>
               Зареєстуватися
             </Text>
           </Button>
 
           <View style={styles.singUpContainer}>
-            <Text style={styles.baseButonText}>
+            <Text style={styles.baseButtonText}>
               Вже є акаунт?{" "}
               <TouchableWithoutFeedback onPress={onLogin}>
                 <Text style={styles.singUpText}>Увійти</Text>
@@ -178,7 +169,7 @@ const styles = StyleSheet.create({
   },
   avatarIconButton: {
     position: "absolute",
-    transform: [{ rotate: "-45deg" }],
+    // transform: [{ rotate: "-45deg" }],
     top: 80,
     right: -12,
     width: 25,
@@ -188,7 +179,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.white,
-    borderColor: colors.border_grey,
+    borderColor: colors.accent,
     borderRadius: 100,
     borderWidth: 1,
   },
@@ -202,7 +193,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: colors.white,
     width: SCREEN_WIDTH,
-    height: "65%",
+    height: "70%",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingTop: 92,
@@ -215,7 +206,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginBottom: 32,
   },
-  baseButonText: {
+  baseButtonText: {
     fontSize: 16,
     fontWeight: "400",
     lineHeight: 18,
