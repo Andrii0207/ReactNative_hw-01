@@ -102,6 +102,7 @@ const RegistrationScreen = () => {
                 value={login}
                 onChangeText={handleLoginChange}
                 placeholder="Логін"
+                autoFocus="true"
               />
               <Input
                 value={email}

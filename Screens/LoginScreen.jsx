@@ -15,6 +15,7 @@ import {
 
 import { colors } from "../styles/global";
 import Input from "../components/Input";
+import Button from "../components/Button";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -48,13 +49,32 @@ const LoginScreen = () => {
           <View style={styles.formContainer}>
             <Text style={styles.title}>Увійти</Text>
             <View style={styles.inputWrapper}>
-              <Input placeholder="Адреса електронної пошти" />
+              <Input placeholder="Адреса електронної пошти" autoFocus="true" />
               <Input
                 placeholder="Пароль"
                 rightButton={showButton}
                 isSecure={isPasswordVisible}
                 outerStyles={styles.showPassword}
               />
+            </View>
+            <Button
+              buttonStyle={{ marginBottom: 16 }}
+              onPress={() => console.log("LogIn pressed")}
+            >
+              <Text style={[styles.baseButtonText, styles.logInButton]}>
+                Увійти
+              </Text>
+            </Button>
+
+            <View style={styles.singUpContainer}>
+              <Text style={styles.baseButtonText}>
+                Немає акаунту?{" "}
+                <TouchableWithoutFeedback
+                  onPress={() => console.log("Welcome")}
+                >
+                  <Text style={styles.singUpText}>Зареєструватися</Text>
+                </TouchableWithoutFeedback>
+              </Text>
             </View>
           </View>
         </KeyboardAvoidingView>
@@ -81,7 +101,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: SCREEN_WIDTH,
-    height: "50%",
+    height: "70%",
     paddingVertical: 32,
     paddingHorizontal: 16,
     backgroundColor: colors.white,
@@ -98,6 +118,7 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     gap: 16,
+    marginBottom: 43,
   },
   showPassword: {
     flexDirection: "row",
@@ -108,5 +129,17 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     lineHeight: 18,
     color: colors.blue,
+  },
+  logInButton: {
+    textAlign: "center",
+    color: colors.white,
+  },
+  singUpContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  singUpText: {
+    textDecorationLine: "underline",
   },
 });
