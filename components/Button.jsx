@@ -3,8 +3,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
-} from 'react-native';
-import { colors } from '../styles/global';
+} from "react-native";
+import { colors } from "../styles/global";
 
 const Button = ({ children, onPress, buttonStyle }) => {
   return (
@@ -16,9 +16,8 @@ const Button = ({ children, onPress, buttonStyle }) => {
 
 const styles = StyleSheet.create({
   button: {
-    color: colors.white,
     backgroundColor: colors.accent,
-    borderRadius: '100%',
+    borderRadius: "100%",
     paddingVertical: 16,
     paddingHorizontal: 32,
   },

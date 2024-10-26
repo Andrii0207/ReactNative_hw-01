@@ -14,7 +14,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
-import { colors } from "../styles/global";
+import { baseText, colors } from "../styles/global";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
@@ -61,7 +61,7 @@ const RegistrationScreen = () => {
 
   const showButton = (
     <TouchableOpacity onPress={showPassword}>
-      <Text style={[styles.baseButtonText, styles.passwordButtonText]}>
+      <Text style={[baseText, styles.baseButtonText]}>
         {isPasswordVisible ? "Показати" : "Сховати"}
       </Text>
     </TouchableOpacity>
@@ -125,7 +125,7 @@ const RegistrationScreen = () => {
             </Button>
 
             <View style={styles.singUpContainer}>
-              <Text style={styles.baseButtonText}>
+              <Text style={[styles.baseButtonText, baseText]}>
                 Вже є акаунт?{" "}
                 <TouchableWithoutFeedback onPress={onLogin}>
                   <Text style={styles.singUpText}>Увійти</Text>
@@ -213,12 +213,6 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   baseButtonText: {
-    fontSize: 16,
-    fontWeight: "400",
-    lineHeight: 18,
-    color: colors.blue,
-  },
-  passwordButtonText: {
     color: colors.blue,
   },
   loginButtonText: { color: colors.white, alignSelf: "center" },

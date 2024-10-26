@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, View } from "react-native";
-import { colors } from "../styles/global";
+import { baseText, colors } from "../styles/global";
 import { useState } from "react";
 
 const Input = ({
@@ -26,6 +26,7 @@ const Input = ({
         autoFocus={autoFocus}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        style={[styles.placeholderTextStyle, baseText]}
       />
       {rightButton}
     </View>
@@ -40,6 +41,9 @@ const styles = StyleSheet.create({
     borderColor: colors.border_grey,
     backgroundColor: colors.light_grey,
     padding: 16,
+  },
+  placeholderTextStyle: {
+    color: colors.black_primary,
   },
 });
 

@@ -13,7 +13,7 @@ import {
   View,
 } from "react-native";
 
-import { colors } from "../styles/global";
+import { baseText, colors } from "../styles/global";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
@@ -28,7 +28,7 @@ const LoginScreen = () => {
 
   const showButton = (
     <TouchableOpacity onPress={showInputPassword}>
-      <Text style={styles.baseButtonText}>
+      <Text style={[baseText, styles.baseButtonText]}>
         {isPasswordVisible ? "Показати" : "Сховати"}
       </Text>
     </TouchableOpacity>
@@ -61,13 +61,15 @@ const LoginScreen = () => {
               buttonStyle={{ marginBottom: 16 }}
               onPress={() => console.log("LogIn pressed")}
             >
-              <Text style={[styles.baseButtonText, styles.logInButton]}>
+              <Text
+                style={[baseText, styles.baseButtonText, styles.logInButton]}
+              >
                 Увійти
               </Text>
             </Button>
 
             <View style={styles.singUpContainer}>
-              <Text style={styles.baseButtonText}>
+              <Text style={[baseText, styles.baseButtonText]}>
                 Немає акаунту?{" "}
                 <TouchableWithoutFeedback
                   onPress={() => console.log("Welcome")}
@@ -125,9 +127,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   baseButtonText: {
-    fontSize: 16,
-    fontWeight: "400",
-    lineHeight: 18,
     color: colors.blue,
   },
   logInButton: {

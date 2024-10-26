@@ -6,5 +6,11 @@ export const colors = {
     border_grey: "#E8E8E8",
     blue: "#1B4371",
     accent: "#FF6C00",
+}
 
+export const baseText = {
+    fontSize: 16,
+    fontWeight: "400",
+    lineHeight: 18,
+    color: colors.black_primary,
 }
