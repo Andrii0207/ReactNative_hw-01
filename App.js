@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 import RegistrationScreen from './screens/RegistrationScreen';
+import LoginScreen from "./screens/LoginScreen";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -26,6 +27,9 @@ export default function App() {
   }
 
   return (
-    <RegistrationScreen />
+    <>
+      {/* <RegistrationScreen /> */}
+      <LoginScreen />
+    </>
   );
 }
