@@ -3,11 +3,16 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import RegistrationScreen from './screens/RegistrationScreen';
 import LoginScreen from "./screens/LoginScreen";
+import PostsScreen from "./screens/PostsScreen"
+import CreatePostsScreen from "./screens/CreatePostsScreen";
 
 SplashScreen.preventAutoHideAsync();
+const MainStack = createStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,9 +32,11 @@ export default function App() {
   }
 
   return (
-    <>
-      {/* <RegistrationScreen /> */}
-      <LoginScreen />
-    </>
+
+
+    // <RegistrationScreen />
+    // < LoginScreen />
+    <CreatePostsScreen />
+
   );
 }

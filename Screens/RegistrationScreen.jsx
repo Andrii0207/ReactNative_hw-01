@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: colors.white,
     width: SCREEN_WIDTH,
-    height: "70%",
+    height: "75%",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingTop: 92,
