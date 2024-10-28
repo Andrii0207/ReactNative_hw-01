@@ -2,6 +2,9 @@ import { StyleSheet, Text, View, SafeAreaView, Dimensions } from "react-native";
 import { baseText, colors } from "../styles/global";
 import CameraIcon from "../icons/CameraIcon";
 import Input from "../components/Input";
+import LocationIcon from "../icons/LocationIcon";
+import Button from "../components/Button";
+import DeleteIcon from "../icons/DeleteIcon";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -16,7 +19,19 @@ const CreatePostsScreen = () => {
       <Text style={[baseText, styles.photoAriaTitle]}>Завантажте фото</Text>
       <View style={styles.inputWrapper}>
         <Input outerStyles={styles.input} placeholder="Назва..." />
-        <Input outerStyles={styles.input} placeholder="Місцевість..." />
+        <Input
+          outerStyles={[styles.input, styles.locationInput]}
+          placeholder="Місцевість..."
+          rightButton={<LocationIcon />}
+        />
+      </View>
+      <View style={styles.buttonWrapper}>
+        <Button buttonStyle={styles.buttonSubmit}>
+          <Text style={[baseText, styles.textButtonSubmit]}>Опубліковати</Text>
+        </Button>
+        <Button buttonStyle={styles.buttonDelete}>
+          <DeleteIcon />
+        </Button>
       </View>
     </View>
   );
@@ -57,6 +72,7 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     gap: 16,
+    marginBottom: 32,
   },
   input: {
     paddingHorizontal: 0,
@@ -65,5 +81,32 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     borderBottomColor: colors.border_grey,
     backgroundColor: colors.white,
+  },
+  locationInput: {
+    flexDirection: "row-reverse",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    gap: 4,
+  },
+  buttonWrapper: {
+    alignItems: "center",
+  },
+  buttonSubmit: {
+    width: "100%",
+    backgroundColor: colors.light_grey,
+    marginBottom: 120,
+  },
+  textButtonSubmit: {
+    textAlign: "center",
+    color: colors.text_grey,
+  },
+  buttonDelete: {
+    flexDirection: "row",
+    justifyContent: "center",
+    width: 0,
+    paddingVertical: 8,
+    paddingHorizontal: 35,
+    backgroundColor: colors.light_grey,
+    marginBottom: 32,
   },
 });
