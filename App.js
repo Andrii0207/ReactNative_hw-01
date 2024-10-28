@@ -10,6 +10,7 @@ import RegistrationScreen from './screens/RegistrationScreen';
 import LoginScreen from "./screens/LoginScreen";
 import PostsScreen from "./screens/PostsScreen"
 import CreatePostsScreen from "./screens/CreatePostsScreen";
+import CommentsScreen from "./screens/CommentsScreen";
 
 SplashScreen.preventAutoHideAsync();
 const MainStack = createStackNavigator();
@@ -19,6 +20,7 @@ export default function App() {
     "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
     "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
     "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+    "Inter-Medium": require("./assets/fonts/Inter-Medium.otf"),
   })
 
   useEffect(() => {
@@ -36,7 +38,8 @@ export default function App() {
 
     // <RegistrationScreen />
     // < LoginScreen />
-    <CreatePostsScreen />
+    // <CreatePostsScreen />
+    <CommentsScreen />
 
   );
 }

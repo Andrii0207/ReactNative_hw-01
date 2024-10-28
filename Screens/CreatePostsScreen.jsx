@@ -11,7 +11,7 @@ const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 const CreatePostsScreen = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.photoAria}>
+      <View style={styles.imageWrapper}>
         <View style={styles.centerPhotoAriaCircle}>
           <CameraIcon />
         </View>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     marginTop: 76,
   },
-  photoAria: {
+  imageWrapper: {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
