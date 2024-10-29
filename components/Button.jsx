@@ -6,9 +6,9 @@ import {
 } from "react-native";
 import { colors } from "../styles/global";
 
-const Button = ({ children, onPress, buttonStyle }) => {
+const Button = ({ children, onPress, outerStyle }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, buttonStyle]}>
+    <TouchableOpacity onPress={onPress} style={[styles.button, outerStyle]}>
       {children}
     </TouchableOpacity>
   );

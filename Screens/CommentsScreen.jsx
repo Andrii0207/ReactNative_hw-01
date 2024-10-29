@@ -4,8 +4,9 @@ import { colors } from "../styles/global";
 import Comment from "../components/Comment";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import ArrowUp from "../icons/ArrowUp";
+import ArrowUpIcon from "../icons/ArrowUpIcon";
 import comments from "../assets/data/postComment";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -19,6 +20,7 @@ const CommentsScreen = () => {
           style={styles.image}
         />
       </View>
+
       <FlatList
         data={comments}
         renderItem={({ item, index }) => (
@@ -31,17 +33,14 @@ const CommentsScreen = () => {
         )}
         keyExtractor={item => item.id}
       />
-
       <View style={styles.inputWrapper}>
-        <Input placeholder="Коментувати..." outerStyles={styles.input} />
-        <View style={styles.buttonWrapper}>
-          <Button
-            onPress={() => console.log("Comment sent")}
-            buttonStyle={styles.button}
-          >
-            <ArrowUp style={styles.icon} />
-          </Button>
-        </View>
+        <Input outerStyles={styles.input} placeholder="Коментувати..." />
+        <Button
+          outerStyle={styles.button}
+          onPress={() => console.log("sent comment")}
+        >
+          <ArrowUpIcon />
+        </Button>
       </View>
     </View>
   );
@@ -71,41 +70,24 @@ const styles = StyleSheet.create({
     borderColor: colors.border_grey,
   },
   image: {
-    // position: "absolute",
-    // top: 0,
-    // right: 0,
-    width: SCREEN_WIDTH,
+    width: "100%",
     height: "100%",
   },
-
   inputWrapper: {
-    width: "100%",
-    justifyContent: "center",
-    alignSelf: "center",
-    right: 10,
-    top: 8,
     marginBottom: 16,
   },
   input: {
-    justifyContent: "center",
     borderRadius: 100,
-    fontWeight: "500",
     fontFamily: "Inter-Medium",
-    padding: 8,
-    paddingLeft: 16,
-  },
-  buttonWrapper: {
-    position: "absolute",
-    right: 10,
-    top: 8,
+    fontWeight: "500",
   },
   button: {
+    position: "absolute",
+    top: 8,
+    right: 16,
     width: 34,
     height: 34,
     paddingVertical: 0,
     paddingHorizontal: 0,
-  },
-  icon: {
-    // position: "absolute",
   },
 });

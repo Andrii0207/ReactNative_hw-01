@@ -1,7 +1,7 @@
 import * as React from "react";
 import Svg, { Circle, Path } from "react-native-svg";
 
-const ArrowUp = props => (
+const ArrowUpIcon = props => (
   <Svg width={34} height={34} fill="none" {...props}>
     <Circle cx={17} cy={17} r={17} fill="#FF6C00" />
     <Path
@@ -10,4 +10,4 @@ const ArrowUp = props => (
     />
   </Svg>
 );
-export default ArrowUp;
+export default ArrowUpIcon;

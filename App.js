@@ -43,8 +43,8 @@ export default function App() {
     // <PublicationScreen />
     // <CreatePostsScreen />
     // <CreatePostsScreen2 />
-    <PostsScreen />
-    // <CommentsScreen />
+    // <PostsScreen />
+    <CommentsScreen />
 
 
   );
