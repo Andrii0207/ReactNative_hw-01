@@ -14,7 +14,7 @@ const CommentsScreen = () => {
     <View style={styles.container}>
       <View style={styles.imageWrapper}>
         <Image
-          source={require("../assets/images/postImage_2.png")}
+          source={require("../assets/images/postImage_3.png")}
           resizeMode="contain"
           style={styles.image}
         />
@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 16,
     marginTop: 76,
+    position: "relative",
   },
   imageWrapper: {
     justifyContent: "center",
@@ -70,7 +71,10 @@ const styles = StyleSheet.create({
     borderColor: colors.border_grey,
   },
   image: {
-    width: "100%",
+    // position: "absolute",
+    // top: 0,
+    // right: 0,
+    width: SCREEN_WIDTH,
     height: "100%",
   },
 

@@ -1,5 +1,8 @@
 const data = [{
     id: "data-1",
+    name: "Natali Romanova",
+    email: "email@example.com",
+    avatar: require("../images/avatar_icon.png"),
     postName: "Ліс",
     postImg: require("../images/item1.jpg"),
     postComment: 8,
@@ -8,6 +11,9 @@ const data = [{
 },
 {
     id: "data-2",
+    name: "Natali Romanova",
+    email: "email@example.com",
+    avatar: require("../images/avatar_icon.png"),
     postName: "Захід на Чорному морі",
     postImg: require("../images/item2.jpg"),
     postComment: 3,
@@ -16,6 +22,9 @@ const data = [{
 },
 {
     id: "data-3",
+    name: "Natali Romanova",
+    email: "email@example.com",
+    avatar: require("../images/avatar_icon.png"),
     postName: "Старий будиночок у Венеції",
     postImg: require("../images/item3.jpg"),
     postComment: 50,
