@@ -12,6 +12,7 @@ import PostsScreen from "./screens/PostsScreen"
 import CreatePostsScreen from "./screens/CreatePostsScreen";
 import CommentsScreen from "./screens/CommentsScreen";
 import PublicationScreen from "./screens/PublicationScreen";
+import CreatePostsScreen2 from "./screens/CreaPostsScreen2";
 
 SplashScreen.preventAutoHideAsync();
 const MainStack = createStackNavigator();
@@ -39,8 +40,10 @@ export default function App() {
 
     // <RegistrationScreen />
     // < LoginScreen />
-    <PublicationScreen />
+    // <PublicationScreen />
     // <CreatePostsScreen />
+    // <CreatePostsScreen2 />
+    <PostsScreen />
     // <CommentsScreen />
 
 

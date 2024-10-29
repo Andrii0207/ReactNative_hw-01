@@ -26,7 +26,7 @@ const Input = ({
         autoFocus={autoFocus}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        style={[styles.placeholderTextStyle, baseText]}
+        style={baseText}
       />
       {rightButton}
     </View>
@@ -41,9 +41,6 @@ const styles = StyleSheet.create({
     borderColor: colors.border_grey,
     backgroundColor: colors.light_grey,
     padding: 16,
-  },
-  placeholderTextStyle: {
-    color: colors.black_primary,
   },
 });
 

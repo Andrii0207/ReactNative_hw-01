@@ -1,11 +1,11 @@
 import { Dimensions, FlatList, Image, StyleSheet, View } from "react-native";
 import { colors } from "../styles/global";
-import CameraIcon from "../icons/CameraIcon";
-import comments from "../assets/data/postComment";
+
 import Comment from "../components/Comment";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import ArrowUp from "../icons/ArrowUp";
+import comments from "../assets/data/postComment";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
