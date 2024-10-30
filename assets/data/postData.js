@@ -29,7 +29,7 @@ const data = [{
     image: require("../images/postImage_3.png"),
     comments: 50,
     likes: 0,
-    location: "Itally",
+    location: "Italy",
 },]
 
 export default data;

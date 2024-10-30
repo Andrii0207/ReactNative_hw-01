@@ -2,14 +2,14 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { colors } from "../styles/global";
 import User from "../components/User";
 
-const PublicationScreen = () => {
+const PostsScreen = () => {
   return (
     <View style={styles.container}>
       <User />
     </View>
   );
 };
-export default PublicationScreen;
+export default PostsScreen;
 
 const styles = StyleSheet.create({
   container: {

@@ -17,18 +17,23 @@ const Publication = ({
       <Image source={image} style={styles.image} />
       <Text style={[baseText, styles.title]}>{title}</Text>
       <View style={styles.statisticWrapper}>
-        <View style={styles.commentsWrapper}>
-          <CommentsIcon isActive={comments && comments} />
-          <Text style={[baseText, !comments && styles.commentsCounter]}>
-            {comments}
-          </Text>
+        <View style={styles.ratingWrapper}>
+          <View style={styles.commentsWrapper}>
+            <CommentsIcon isActive={comments && comments} />
+            <Text style={[baseText, !comments && styles.commentsCounter]}>
+              {comments}
+            </Text>
+          </View>
+          {likes !== 0 && (
+            <TouchableOpacity
+              style={styles.likesWrapper}
+              onPress={() => console.log("like pressed")}
+            >
+              <LikesIcon />
+              <Text style={baseText}>{likes}</Text>
+            </TouchableOpacity>
+          )}
         </View>
-        {likes !== 0 && (
-          <TouchableOpacity style={styles.likesWrapper}>
-            <LikesIcon />
-            <Text style={baseText}>{likes}</Text>
-          </TouchableOpacity>
-        )}
         <View style={styles.locationWrapper}>
           <LocationIcon />
           <Text style={[baseText, styles.location]}>{location}</Text>
@@ -57,6 +62,10 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "500",
     marginBottom: 8,
+  },
+  ratingWrapper: {
+    flexDirection: "row",
+    gap: 24,
   },
   commentsWrapper: {
     flexDirection: "row",

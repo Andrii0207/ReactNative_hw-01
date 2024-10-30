@@ -22,14 +22,15 @@ const CreatePostsScreen = () => {
         <Input
           outerStyles={[styles.input, styles.locationInput]}
           placeholder="Місцевість..."
+          autoFocus="true"
           rightButton={<LocationIcon />}
         />
       </View>
       <View style={styles.buttonWrapper}>
-        <Button buttonStyle={styles.buttonSubmit}>
+        <Button outerStyles={styles.buttonSubmit}>
           <Text style={[baseText, styles.textButtonSubmit]}>Опубліковати</Text>
         </Button>
-        <Button buttonStyle={styles.buttonDelete}>
+        <Button outerStyles={styles.buttonDelete}>
           <DeleteIcon />
         </Button>
       </View>
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
   buttonSubmit: {
     width: "100%",
     backgroundColor: colors.light_grey,
-    marginBottom: 120,
+    marginBottom: 50,
   },
   textButtonSubmit: {
     textAlign: "center",

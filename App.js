@@ -8,11 +8,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import RegistrationScreen from './screens/RegistrationScreen';
 import LoginScreen from "./screens/LoginScreen";
-import PostsScreen from "./screens/PostsScreen"
+import HomeScreen from "./screens/HomeScreen"
 import CreatePostsScreen from "./screens/CreatePostsScreen";
 import CommentsScreen from "./screens/CommentsScreen";
 import PublicationScreen from "./screens/PublicationScreen";
 import CreatePostsScreen2 from "./screens/CreaPostsScreen2";
+import ProfileScreen from "./screens/ProfileScreen";
+import BottomTabNavigator from "./navigation/BottomTabNavigtion";
 
 SplashScreen.preventAutoHideAsync();
 const MainStack = createStackNavigator();
@@ -36,16 +38,18 @@ export default function App() {
   }
 
   return (
-
-
-    // <RegistrationScreen />
-    // < LoginScreen />
-    // <PublicationScreen />
-    // <CreatePostsScreen />
-    // <CreatePostsScreen2 />
-    // <PostsScreen />
-    <CommentsScreen />
-
-
+    <NavigationContainer>
+      <BottomTabNavigator />
+    </NavigationContainer>
   );
 }
+
+
+// <RegistrationScreen />
+//  < LoginScreen />
+// <PublicationScreen />
+// <CreatePostsScreen />
+//  <CreatePostsScreen2 />
+// <HomeScreen />
+// <CommentsScreen />
+// <ProfileScreen />

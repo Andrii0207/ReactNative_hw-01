@@ -86,7 +86,10 @@ const RegistrationScreen = () => {
                 resizeMode="cover"
                 style={styles.avatarIcon}
               />
-              <TouchableOpacity style={styles.avatarIconButton}>
+              <TouchableOpacity
+                style={styles.avatarIconButton}
+                onPress={() => console.log("delete avatar RegistrationScreen")}
+              >
                 <Icon
                   name="plus"
                   size="18"
@@ -118,7 +121,7 @@ const RegistrationScreen = () => {
                 outerStyles={styles.passwordButton}
               />
             </View>
-            <Button buttonStyle={styles.regitrationButton} onPress={onSingUp}>
+            <Button outerStyles={styles.regitrationButton} onPress={onSingUp}>
               <Text style={[styles.baseButtonText, styles.loginButtonText]}>
                 Зареєстуватися
               </Text>

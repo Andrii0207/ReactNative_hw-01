@@ -33,10 +33,10 @@ const CreatePostsScreen2 = () => {
         />
       </View>
       <View style={styles.buttonWrapper}>
-        <Button buttonStyle={styles.buttonSubmit}>
+        <Button outerStyles={styles.buttonSubmit}>
           <Text style={[baseText, styles.textButtonSubmit]}>Опубліковати</Text>
         </Button>
-        <Button buttonStyle={styles.buttonDelete}>
+        <Button outerStyles={styles.buttonDelete}>
           <DeleteIcon />
         </Button>
       </View>

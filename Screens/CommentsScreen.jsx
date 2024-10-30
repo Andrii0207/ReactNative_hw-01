@@ -6,7 +6,6 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import ArrowUpIcon from "../icons/ArrowUpIcon";
 import comments from "../assets/data/postComment";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -33,11 +32,12 @@ const CommentsScreen = () => {
         )}
         keyExtractor={item => item.id}
       />
+
       <View style={styles.inputWrapper}>
         <Input outerStyles={styles.input} placeholder="Коментувати..." />
         <Button
-          outerStyle={styles.button}
-          onPress={() => console.log("sent comment")}
+          outerStyles={styles.button}
+          onPress={() => console.log("comment +1")}
         >
           <ArrowUpIcon />
         </Button>

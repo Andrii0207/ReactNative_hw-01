@@ -23,7 +23,7 @@ const Input = ({
         placeholder={placeholder}
         secureTextEntry={isSecure}
         autoCapitalize="none"
-        autoFocus={autoFocus}
+        // autoFocus={autoFocus}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         style={baseText}

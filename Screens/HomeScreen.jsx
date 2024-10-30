@@ -4,14 +4,14 @@ import User from "../components/User";
 
 import data from "../assets/data/postData";
 
-const PostsScreen = () => {
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <User style={styles.user} />
 
       <FlatList
         data={data}
-        renderItem={({ item, index }) => (
+        renderItem={({ item }) => (
           <Publication
             title={item.title}
             image={item.image}
@@ -26,7 +26,7 @@ const PostsScreen = () => {
   );
 };
 
-export default PostsScreen;
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -38,30 +38,3 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
 });
-
-{
-  /* <FlatList
-  data={comments}
-  renderItem={({ item, index }) => (
-    <Comment
-      text={item.text}
-      date={item.date}
-      avatar={item.userAvatar}
-      isEven={index % 2 === 1}
-    />
-  )}
-  keyExtractor={item => item.id}
-/>; */
-}
-
-// {
-//     id: "data-1",
-//     name: "Natali Romanova",
-//     email: "email@example.com",
-//     avatar: require("../images/avatar_icon.png"),
-//     title: "Ліс",
-//     image: require("../images/postImage_1.png"),
-//     comments: 8,
-//     likes: "153",
-//     location: "Ivano-Frankivs'k Region, Ukraine",
-// }

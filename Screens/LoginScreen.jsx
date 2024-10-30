@@ -58,8 +58,8 @@ const LoginScreen = () => {
               />
             </View>
             <Button
-              buttonStyle={{ marginBottom: 16 }}
-              onPress={() => console.log("LogIn pressed")}
+              outerStyles={{ marginBottom: 16 }}
+              onPress={() => console.log("Login pressed")}
             >
               <Text
                 style={[baseText, styles.baseButtonText, styles.logInButton]}
