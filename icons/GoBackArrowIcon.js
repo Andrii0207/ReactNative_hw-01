@@ -1,9 +1,8 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
 
-const ArrowGoBackIcon = (props) => (
+const GoBackArrowIcon = (props) => (
     <Svg
-
         width={24}
         height={24}
         fill="none"
@@ -18,4 +17,4 @@ const ArrowGoBackIcon = (props) => (
         />
     </Svg>
 )
-export default ArrowGoBackIcon;
+export default GoBackArrowIcon;

@@ -14,9 +14,8 @@ export default PostsScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: "row",
     paddingHorizontal: 16,
     paddingVertical: 32,
-    marginTop: 88,
-    flexDirection: "row",
   },
 });
