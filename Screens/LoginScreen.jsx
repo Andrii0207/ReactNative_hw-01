@@ -19,11 +19,21 @@ import Button from "../components/Button";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation, route }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
 
   const showInputPassword = () => {
     setIsPasswordVisible(prev => !prev);
+  };
+
+  const SingIn = () => {
+    console.log("singin pressed");
+    navigation.navigate("Home");
+  };
+
+  const SingUp = () => {
+    console.log("singup pressed");
+    navigation.navigate("SingUp");
   };
 
   const showButton = (
@@ -57,10 +67,7 @@ const LoginScreen = () => {
                 outerStyles={styles.showPassword}
               />
             </View>
-            <Button
-              outerStyles={{ marginBottom: 16 }}
-              onPress={() => console.log("Login pressed")}
-            >
+            <Button outerStyles={{ marginBottom: 16 }} onPress={SingIn}>
               <Text
                 style={[baseText, styles.baseButtonText, styles.logInButton]}
               >
@@ -71,9 +78,7 @@ const LoginScreen = () => {
             <View style={styles.singUpContainer}>
               <Text style={[baseText, styles.baseButtonText]}>
                 Немає акаунту?{" "}
-                <TouchableWithoutFeedback
-                  onPress={() => console.log("Welcome")}
-                >
+                <TouchableWithoutFeedback onPress={SingUp}>
                   <Text style={styles.singUpText}>Зареєструватися</Text>
                 </TouchableWithoutFeedback>
               </Text>
@@ -103,7 +108,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: SCREEN_WIDTH,
-    height: "55%",
+    height: "63%",
     paddingVertical: 32,
     paddingHorizontal: 16,
     backgroundColor: colors.white,

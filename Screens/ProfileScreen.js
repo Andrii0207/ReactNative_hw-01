@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         backgroundColor: colors.white,
         width: SCREEN_WIDTH,
-        height: "80%",
+        height: "85%",
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         paddingTop: 92,

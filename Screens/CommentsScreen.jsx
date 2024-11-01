@@ -1,4 +1,12 @@
-import { Dimensions, FlatList, Image, StyleSheet, View } from "react-native";
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  View,
+} from "react-native";
 import { colors } from "../styles/global";
 
 import Comment from "../components/Comment";
@@ -9,7 +17,7 @@ import comments from "../assets/data/postComment";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
-const CommentsScreen = () => {
+const CommentsScreen = ({ navigate, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageWrapper}>
@@ -33,15 +41,20 @@ const CommentsScreen = () => {
         keyExtractor={item => item.id}
       />
 
-      <View style={styles.inputWrapper}>
-        <Input outerStyles={styles.input} placeholder="Коментувати..." />
-        <Button
-          outerStyles={styles.button}
-          onPress={() => console.log("comment +1")}
-        >
-          <ArrowUpIcon />
-        </Button>
-      </View>
+      <KeyboardAvoidingView
+        style={styles.commentContainer}
+        behavior={Platform.OS === "ios" ? "height" : "padding"}
+      >
+        <View style={styles.inputWrapper}>
+          <Input outerStyles={styles.input} placeholder="Коментувати..." />
+          <Button
+            outerStyles={styles.button}
+            onPress={() => console.log("comment submit")}
+          >
+            <ArrowUpIcon />
+          </Button>
+        </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
@@ -52,8 +65,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingVertical: 16,
-    marginTop: 76,
+    paddingVertical: 32,
     position: "relative",
   },
   imageWrapper: {
@@ -63,7 +75,6 @@ const styles = StyleSheet.create({
     height: 240,
     marginBottom: 32,
     backgroundColor: colors.light_grey,
-
     borderWidth: 1,
     borderRadius: 8,
     borderStyle: "solid",
@@ -72,6 +83,10 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
+  },
+  commentContainer: {
+    flex: 1,
+    justifyContent: "center",
   },
   inputWrapper: {
     marginBottom: 16,
@@ -91,3 +106,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
 });
+
+// formContainer: {
+//     position: "absolute",
+//     bottom: 0,
+//     backgroundColor: colors.white,
+//     width: SCREEN_WIDTH,
+//     height: "75%",
+//     borderTopLeftRadius: 25,
+//     borderTopRightRadius: 25,
+//     paddingTop: 92,
+//     paddingHorizontal: 16,
+//   },

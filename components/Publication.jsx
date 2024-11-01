@@ -11,24 +11,32 @@ const Publication = ({
   comments,
   likes = 0,
   outerStyle,
+  navigation,
+  route,
 }) => {
+  const addComment = () => {
+    console.log("like pressed");
+    navigation.navigate("Comments");
+  };
+
   return (
     <View style={[styles.container]}>
       <Image source={image} style={styles.image} />
       <Text style={[baseText, styles.title]}>{title}</Text>
       <View style={styles.statisticWrapper}>
         <View style={styles.ratingWrapper}>
-          <View style={styles.commentsWrapper}>
+          <TouchableOpacity
+            onPress={() => console.log("comment pressed")}
+            style={styles.commentsWrapper}
+          >
             <CommentsIcon isActive={comments && comments} />
             <Text style={[baseText, !comments && styles.commentsCounter]}>
               {comments}
             </Text>
-          </View>
+          </TouchableOpacity>
+
           {likes !== 0 && (
-            <TouchableOpacity
-              style={styles.likesWrapper}
-              onPress={() => console.log("like pressed")}
-            >
+            <TouchableOpacity style={styles.likesWrapper} onPress={addComment}>
               <LikesIcon />
               <Text style={baseText}>{likes}</Text>
             </TouchableOpacity>

@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/AntDesign";
 
 import CreatePostsScreen from "../screens/CreatePostsScreen";
 import ProfileScreen from "../screens/ProfileScreen";
-import PostsScreen from "../screens/PublicationScreen";
+import PostsScreen from "../screens/HomeScreen";
 import LogoutButton from "../components/LogoutButton";
 import GoBackArrowIcon from "../icons/GoBackArrowIcon";
 import { colors } from "../styles/global";
@@ -12,31 +12,39 @@ import GobackButton from "../components/ButtonGoback";
 import UserIcon from "../icons/UserIcon";
 import Button from "../components/Button";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import HomeScreen from "../screens/PostsScreen";
+import { useNavigation } from "@react-navigation/native";
 
 const Tabs = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
+  const navigation = useNavigation();
+
   return (
     <Tabs.Navigator
-      initialRouteName="Posts"
+      initialRouteName="Home"
       screenOptions={{
         tabBarLabel: "",
         tabBarStyle: { height: 70 },
         headerTitleAlign: "center",
         tabBarStyle: {
           height: 83,
-          paddingTop: 9,
+          paddingTop: 10,
         },
       }}
     >
       <Tabs.Screen
-        name="Posts"
-        component={PostsScreen}
+        name="Main"
+        component={HomeScreen}
         options={{
           headerRight: () => (
-            <LogoutButton onPress={() => console.log("logout pressed")} />
+            <LogoutButton
+              onPress={() => {
+                navigation.navigate("Login");
+              }}
+            />
           ),
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <Ionicons
               name="grid-outline"
               size={24}
@@ -56,16 +64,21 @@ const BottomTabNavigator = () => {
         name="CreatePost"
         component={CreatePostsScreen}
         options={{
-          headerLeft: () => <GobackButton onPress={() => {}} />,
-          tabBarIcon: () => (
-            <Button
-              outerStyles={styles.addButton}
-              onPress={() => console.log("add pressed")}
+          headerLeft: () => (
+            <GobackButton
+              onPress={() => {
+                navigation.navigate("Main");
+              }}
             >
-              <Ionicons name="add-outline" size={24} color={colors.white} />
-            </Button>
+              <GoBackArrowIcon />
+            </GobackButton>
           ),
-          // tabBarStyle: { display: "none" },
+          tabBarIcon: ({ focused }) => (
+            <View style={styles.addButton}>
+              <Ionicons name="add-outline" size={24} color={colors.white} />
+            </View>
+          ),
+          tabBarStyle: { display: "none" },
           headerRightContainerStyle: { padding: 16 },
           headerLeftContainerStyle: { padding: 16 },
           headerTitle: "Створити публікацію",
@@ -76,11 +89,11 @@ const BottomTabNavigator = () => {
         component={ProfileScreen}
         options={{
           headerShown: false,
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <Ionicons
               name="person-outline"
               size={24}
-              color={colors.black_primary}
+              color={focused ? colors.accent : colors.black_primary}
             />
           ),
         }}
@@ -97,8 +110,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 23,
     width: 70,
     height: 40,
-    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: colors.accent,
+    borderRadius: 20,
+  },
+  isFocused: {
+    position: "absolute",
+    top: 0,
+    backgroundColor: colors.light_grey,
   },
 });
+
+//  !focused && styles.isFocused;

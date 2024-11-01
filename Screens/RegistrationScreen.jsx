@@ -20,7 +20,7 @@ import Button from "../components/Button";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({ navigation, route }) => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,10 +53,12 @@ const RegistrationScreen = () => {
 
   const onSingUp = () => {
     console.log("Зареєстуватися pressed");
+    navigation.navigate("Home");
   };
 
   const onLogin = () => {
-    console.log("Welcome!");
+    console.log("login pressed!");
+    navigation.navigate("Login");
   };
 
   const showButton = (
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
   avatarIconButton: {
     position: "absolute",
     transform: [{ rotate: "-45deg" }],
-    top: 80,
+    top: 55,
     right: -12,
     width: 25,
     height: 25,
@@ -202,7 +204,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: colors.white,
     width: SCREEN_WIDTH,
-    height: "75%",
+    height: "73%",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingTop: 92,
