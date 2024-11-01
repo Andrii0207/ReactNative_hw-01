@@ -1,19 +1,16 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Icon from "react-native-vector-icons/AntDesign";
+import { StyleSheet, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import CreatePostsScreen from "../screens/CreatePostsScreen";
 import ProfileScreen from "../screens/ProfileScreen";
-import PostsScreen from "../screens/HomeScreen";
+import PostsScreen from "../screens/PostsScreen";
 import LogoutButton from "../components/LogoutButton";
+import GobackButton from "../components/ButtonGoback";
+
 import GoBackArrowIcon from "../icons/GoBackArrowIcon";
 import { colors } from "../styles/global";
-import GobackButton from "../components/ButtonGoback";
-import UserIcon from "../icons/UserIcon";
-import Button from "../components/Button";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import HomeScreen from "../screens/PostsScreen";
-import { useNavigation } from "@react-navigation/native";
 
 const Tabs = createBottomTabNavigator();
 
@@ -30,12 +27,14 @@ const BottomTabNavigator = () => {
         tabBarStyle: {
           height: 83,
           paddingTop: 10,
+          borderTopWidth: 1,
+          borderTopColor: colors.text_grey,
         },
       }}
     >
       <Tabs.Screen
         name="Main"
-        component={HomeScreen}
+        component={PostsScreen}
         options={{
           headerRight: () => (
             <LogoutButton

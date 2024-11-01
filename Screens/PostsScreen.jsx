@@ -11,6 +11,7 @@ import Publication from "../components/Publication";
 import User from "../components/User";
 
 import data from "../assets/data/postData";
+import { colors } from "../styles/global";
 
 const PostsScreen = ({ navigation, route }) => {
   return (
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 32,
+    backgroundColor: colors.white,
   },
   user: {
     marginBottom: 32,

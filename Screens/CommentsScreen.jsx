@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 32,
     position: "relative",
+    backgroundColor: colors.white,
   },
   imageWrapper: {
     justifyContent: "center",
