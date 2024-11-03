@@ -8,6 +8,8 @@ const Input = ({
   isSecure,
   rightButton,
   autoFocus = "false",
+  onChange,
+  value,
 }) => {
   const [isFocuses, setIsFocused] = useState(false);
 
@@ -24,6 +26,8 @@ const Input = ({
         secureTextEntry={isSecure}
         autoCapitalize="none"
         // autoFocus={autoFocus}
+        onChangeText={onChange}
+        value={value}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         style={baseText}
