@@ -10,6 +10,8 @@ import Button from "../components/Button";
 import { TouchableOpacity } from "react-native";
 import GobackButton from "../components/ButtonGoback";
 import { useNavigation } from "@react-navigation/native";
+import MapScreen from "../screens/MapScreen";
+import CameraScreen from "../screens/CameraScreen";
 
 const Stack = createStackNavigator();
 
@@ -30,6 +32,23 @@ const StackNavigator = () => {
       <Stack.Screen name="SingUp" component={RegistrationScreen} />
       <Stack.Screen name="Home" component={BottomTabNavigator} />
       <Stack.Screen
+        name="Map"
+        component={MapScreen}
+        options={{
+          headerShown: true,
+          title: "Карта",
+          headerLeft: () => (
+            <GobackButton
+              onPress={() => {
+                navigation.navigate("Home");
+              }}
+            >
+              <GoBackArrowIcon />
+            </GobackButton>
+          ),
+        }}
+      />
+      <Stack.Screen
         name="Comments"
         component={CommentsScreen}
         options={{
@@ -38,7 +57,24 @@ const StackNavigator = () => {
           headerLeft: () => (
             <GobackButton
               onPress={() => {
-                navigation.navigate("Home");
+                navigation.goBack();
+              }}
+            >
+              <GoBackArrowIcon />
+            </GobackButton>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Camera"
+        component={CameraScreen}
+        options={{
+          headerShown: true,
+          title: "Камера",
+          headerLeft: () => (
+            <GobackButton
+              onPress={() => {
+                navigation.goBack();
               }}
             >
               <GoBackArrowIcon />

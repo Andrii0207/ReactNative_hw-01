@@ -3,17 +3,11 @@ import CommentsIcon from "../icons/CommentsIcon";
 import { baseText, colors } from "../styles/global";
 import LikesIcon from "../icons/LikesIcon";
 import LocationIcon from "../icons/LocationIcon";
+import { useNavigation } from "@react-navigation/native";
 
-const Publication = ({
-  image,
-  title,
-  location,
-  comments,
-  likes = 0,
-  outerStyle,
-  navigation,
-  route,
-}) => {
+const Publication = ({ image, title, location, comments, likes = 0 }) => {
+  const navigation = useNavigation();
+
   const addComment = () => {
     console.log("like pressed");
     navigation.navigate("Comments");
@@ -26,7 +20,7 @@ const Publication = ({
       <View style={styles.statisticWrapper}>
         <View style={styles.ratingWrapper}>
           <TouchableOpacity
-            onPress={() => console.log("comment pressed")}
+            onPress={() => navigation.navigate("Comments")}
             style={styles.commentsWrapper}
           >
             <CommentsIcon isActive={comments && comments} />
@@ -43,7 +37,9 @@ const Publication = ({
           )}
         </View>
         <View style={styles.locationWrapper}>
-          <LocationIcon />
+          <TouchableOpacity onPress={() => navigation.navigate("Map")}>
+            <LocationIcon />
+          </TouchableOpacity>
           <Text style={[baseText, styles.location]}>{location}</Text>
         </View>
       </View>

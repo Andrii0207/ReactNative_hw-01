@@ -2,14 +2,11 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
   Dimensions,
   TouchableOpacity,
   Image,
-  TextInput,
 } from "react-native";
-import { CameraView, useCameraPermissions } from "expo-camera";
-import * as MediaLibrary from "expo-media-library";
+
 import { baseText, colors } from "../styles/global";
 import CameraIcon from "../icons/CameraIcon";
 import Input from "../components/Input";
@@ -17,9 +14,12 @@ import LocationIcon from "../icons/LocationIcon";
 import Button from "../components/Button";
 import DeleteIcon from "../icons/DeleteIcon";
 import React, { useState, useRef, useEffect } from "react";
-import Entypo from "@expo/vector-icons/Entypo";
 
 import Camera from "../components/Camera";
+import { uid } from "uid";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import MapScreen from "./MapScreen";
+import LocationPermission from "../components/LocationPermission";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -31,106 +31,64 @@ const CreatePostsScreen = () => {
   // const [isButtonActive, setButtonActive] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isCameraActive, setCameraActive] = useState(false);
+  const [isDiabledButton, setIsDiabledButton] = useState(true);
 
-  const [facing, setFacing] = useState("back");
-  const [cameraPermission, requestCameraPermission] = useCameraPermissions();
-  const [libraryPermission, requestLibraryPermission] =
-    MediaLibrary.usePermissions();
-  const camera = useRef();
+  const navigation = useNavigation();
+  const { params: { photo } = {} } = useRoute();
+  const { params } = useRoute();
 
-  // const userId = user.uid;
-
-  useEffect(() => {
-    const requestPermissions = async () => {
-      if (!cameraPermission || !libraryPermission) {
-        await requestCameraPermission();
-        await requestLibraryPermission();
-      }
-    };
-    requestPermissions();
-  }, [cameraPermission, libraryPermission]);
-
-  if (!cameraPermission) {
-    return <View />;
-  }
-
-  if (!cameraPermission.granted) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.message}>
-          Ми потребуємо вашого дозволу для використання камери
-        </Text>
-        <Button onPress={requestCameraPermission} title="Надати дозвіл" />
-      </View>
-    );
+  if (location) {
+    console.log("location", location);
   }
 
   const handleChangeNamePost = value => {
     setNamePost(value);
   };
 
-  const takePhoto = async () => {
-    if (!camera.current) return;
-    console.log("namePost", namePost);
-
-    const image = await camera.current.takePictureAsync();
-    await MediaLibrary.saveToLibraryAsync(image.uri);
-    setPhotoUri(image.uri);
-    // onCapture(image.uri);
-  };
-
-  function toggleCameraFacing() {
-    setFacing(current => (current === "back" ? "front" : "back"));
-  }
-
-  const clearAllInfo = () => {
-    console.log(namePost);
-    if (!photoUri || !namePost) return;
+  const reset = () => {
     setPhotoUri(null);
     setNamePost("");
-    // setLocation(null);
-    // setGeocode(null);
+  };
+
+  const handleSelectPhoto = uri => {
+    setPhotoUri(uri);
+  };
+
+  const onSubmit = () => {
+    const newPost = {
+      id: Date.now(),
+      userId: uid(),
+      namePost,
+      imageURL: photoUri,
+      comments: [],
+      likes: 0,
+      location: {
+        geoPosition: geocode.coords,
+        nameLocation: location,
+      },
+    };
+    reset();
+    console.log("submit pressed >>");
+    console.log("newPost >>", newPost);
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageWrapper}>
-        {photoUri ? (
-          <View style={styles.photoWrapper}>
-            <Image
-              source={{ uri: photoUri }}
-              style={{ width: SCREEN_WIDTH, height: "100%" }}
-            />
-            <TouchableOpacity
-              style={styles.deletePhotoButton}
-              onPress={() => setPhotoUri(null)}
-            >
-              <Entypo name="cross" size={24} color={colors.accent} />
-            </TouchableOpacity>
+      <LocationPermission setLocation={setLocation} setGeocode={setGeocode} />
+
+      <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
+        {photo ? (
+          <View style={styles.imageWrapper}>
+            <Image source={{ uri: photo }} style={styles.photo} />
           </View>
         ) : (
-          <CameraView style={styles.camera} facing={facing} ref={camera}>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={toggleCameraFacing}
-              >
-                <Text style={styles.text}>Flip Camera</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.button} onPress={takePhoto}>
-                <View style={styles.centerPhotoAriaCircle}>
-                  <CameraIcon width={40} height={40} />
-                </View>
-              </TouchableOpacity>
+          <View style={styles.imageWrapper}>
+            <View style={styles.centerPhotoAriaCircle}>
+              <CameraIcon />
             </View>
-          </CameraView>
+          </View>
         )}
-
-        {/* <View style={styles.centerPhotoAriaCircle}>
-            <CameraIcon />
-          </View> */}
-      </View>
+      </TouchableOpacity>
 
       <TouchableOpacity onPress={() => setIsGalleryOpen(true)}>
         <Text style={[baseText, styles.photoAriaTitle]}>Завантажте фото</Text>
@@ -153,10 +111,16 @@ const CreatePostsScreen = () => {
         />
       </View>
       <View style={styles.buttonWrapper}>
-        <Button outerStyles={styles.buttonSubmit}>
+        <Button
+          outerStyles={[styles.buttonSubmit]}
+          onPress={() => {
+            navigation.navigate("Main");
+            onSubmit();
+          }}
+        >
           <Text style={[baseText, styles.textButtonSubmit]}>Опубліковати</Text>
         </Button>
-        <Button outerStyles={styles.buttonDelete} onPress={clearAllInfo}>
+        <Button outerStyles={styles.buttonDelete} onPress={reset}>
           <DeleteIcon />
         </Button>
       </View>
@@ -184,6 +148,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderStyle: "solid",
     borderColor: colors.border_grey,
+  },
+  photo: {
+    width: "100%",
+    height: 240,
   },
   centerPhotoAriaCircle: {
     justifyContent: "center",
@@ -228,6 +196,9 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: colors.light_grey,
     marginBottom: 50,
+  },
+  isActive: {
+    backgroundColor: colors.accent,
   },
   textButtonSubmit: {
     textAlign: "center",
