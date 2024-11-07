@@ -1,5 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { colors } from "../styles/global";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import User from "../components/User";
 
 const HomeScreen = () => {

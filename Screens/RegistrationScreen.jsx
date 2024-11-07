@@ -1,13 +1,11 @@
 import { useState } from "react";
 import {
   View,
-  TextInput,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert,
   Image,
   Text,
   Dimensions,

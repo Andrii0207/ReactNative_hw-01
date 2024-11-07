@@ -120,5 +120,3 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light_grey,
   },
 });
-
-//  !focused && styles.isFocused;

@@ -1,13 +1,9 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../screens/LoginScreen";
 import RegistrationScreen from "../screens/RegistrationScreen";
-import HomeScreen from "../screens/PostsScreen";
 import BottomTabNavigator from "./BottomTabNavigtion";
-import PostsScreen from "../screens/HomeScreen";
 import CommentsScreen from "../screens/CommentsScreen";
 import GoBackArrowIcon from "../icons/GoBackArrowIcon";
-import Button from "../components/Button";
-import { TouchableOpacity } from "react-native";
 import GobackButton from "../components/ButtonGoback";
 import { useNavigation } from "@react-navigation/native";
 import MapScreen from "../screens/MapScreen";

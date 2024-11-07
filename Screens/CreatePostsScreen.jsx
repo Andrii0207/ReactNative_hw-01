@@ -13,12 +13,10 @@ import Input from "../components/Input";
 import LocationIcon from "../icons/LocationIcon";
 import Button from "../components/Button";
 import DeleteIcon from "../icons/DeleteIcon";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 
-import Camera from "../components/Camera";
 import { uid } from "uid";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import MapScreen from "./MapScreen";
 import LocationPermission from "../components/LocationPermission";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");

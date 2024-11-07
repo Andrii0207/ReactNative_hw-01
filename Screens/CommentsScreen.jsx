@@ -107,15 +107,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
 });
-
-// formContainer: {
-//     position: "absolute",
-//     bottom: 0,
-//     backgroundColor: colors.white,
-//     width: SCREEN_WIDTH,
-//     height: "75%",
-//     borderTopLeftRadius: 25,
-//     borderTopRightRadius: 25,
-//     paddingTop: 92,
-//     paddingHorizontal: 16,
-//   },
