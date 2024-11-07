@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { baseText, colors } from "../styles/global";
 import CameraIcon from "../icons/CameraIcon";
 import Input from "../components/Input";

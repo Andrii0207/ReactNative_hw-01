@@ -8,7 +8,6 @@ import ProfileScreen from "../screens/ProfileScreen";
 import PostsScreen from "../screens/PostsScreen";
 import LogoutButton from "../components/LogoutButton";
 import GobackButton from "../components/ButtonGoback";
-
 import GoBackArrowIcon from "../icons/GoBackArrowIcon";
 import { colors } from "../styles/global";
 

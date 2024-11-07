@@ -2,23 +2,12 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
-import RegistrationScreen from './screens/RegistrationScreen';
-import LoginScreen from "./screens/LoginScreen";
-import HomeScreen from "./screens/PostsScreen"
-import CreatePostsScreen from "./screens/CreatePostsScreen";
-import CommentsScreen from "./screens/CommentsScreen";
-import PublicationScreen from "./screens/HomeScreen";
-import CreatePostsScreen2 from "./screens/CreaPostsScreen2";
-import ProfileScreen from "./screens/ProfileScreen";
-import BottomTabNavigator from "./navigation/BottomTabNavigtion";
 import StackNavigator from "./navigation/StackNavigator";
 
 SplashScreen.preventAutoHideAsync();
-const MainStack = createStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -40,19 +29,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      {/* <BottomTabNavigator /> */}
       <StatusBar style="auto" />
       <StackNavigator />
     </NavigationContainer>
   );
 }
-
-
-// <RegistrationScreen />
-//  < LoginScreen />
-// <PublicationScreen />
-// <CreatePostsScreen />
-//  <CreatePostsScreen2 />
-// <HomeScreen />
-// <CommentsScreen />
-// <ProfileScreen />
