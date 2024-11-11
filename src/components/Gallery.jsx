@@ -1,7 +1,8 @@
-import React from "react";
 import { Modal, View, StyleSheet } from "react-native";
-import PhotoGallery from "./PhotoGallery";
-import Buttons from "../components/Buttons";
+import React from "react";
+
+import Buttons from "../components/Button";
+
 import colors from "../../styles/global";
 
 const Gallery = () => {

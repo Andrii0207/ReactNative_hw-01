@@ -1,6 +1,7 @@
 import { StyleSheet, TextInput, View } from "react-native";
-import { baseText, colors } from "../styles/global";
 import { useState } from "react";
+
+import { baseText, colors } from "../../styles/global";
 
 const Input = ({
   placeholder,

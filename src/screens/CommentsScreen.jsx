@@ -7,13 +7,14 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { colors } from "../styles/global";
 
 import Comment from "../components/Comment";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import ArrowUpIcon from "../icons/ArrowUpIcon";
-import comments from "../assets/data/postComment";
+import ArrowUpIcon from "../../icons/ArrowUpIcon";
+import comments from "../../assets/data/postComment";
+
+import { colors } from "../../styles/global";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -22,7 +23,7 @@ const CommentsScreen = ({ navigate, route }) => {
     <View style={styles.container}>
       <View style={styles.imageWrapper}>
         <Image
-          source={require("../assets/images/postImage_3.png")}
+          source={require("../../assets/images/postImage_3.png")}
           resizeMode="contain"
           style={styles.image}
         />

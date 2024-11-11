@@ -1,13 +1,14 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "../screens/LoginScreen";
 import RegistrationScreen from "../screens/RegistrationScreen";
-import BottomTabNavigator from "./BottomTabNavigtion";
-import CommentsScreen from "../screens/CommentsScreen";
-import GoBackArrowIcon from "../icons/GoBackArrowIcon";
-import GobackButton from "../components/ButtonGoback";
 import { useNavigation } from "@react-navigation/native";
+
+import BottomTabNavigator from "./BottomTabNavigtion";
+import GobackButton from "../components/ButtonGoback";
+import LoginScreen from "../screens/LoginScreen";
+import CommentsScreen from "../screens/CommentsScreen";
 import MapScreen from "../screens/MapScreen";
 import CameraScreen from "../screens/CameraScreen";
+import GoBackArrowIcon from "../../icons/GoBackArrowIcon";
 
 const Stack = createStackNavigator();
 

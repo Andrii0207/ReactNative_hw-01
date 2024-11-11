@@ -1,10 +1,6 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { colors } from "../styles/global";
+import { StyleSheet, TouchableOpacity } from "react-native";
+
+import { colors } from "../../styles/global";
 
 const Button = ({ children, onPress, outerStyles, disabled }) => {
   return (

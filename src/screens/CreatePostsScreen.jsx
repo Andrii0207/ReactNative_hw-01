@@ -6,18 +6,18 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-
-import { baseText, colors } from "../styles/global";
-import CameraIcon from "../icons/CameraIcon";
-import Input from "../components/Input";
-import LocationIcon from "../icons/LocationIcon";
-import Button from "../components/Button";
-import DeleteIcon from "../icons/DeleteIcon";
 import React, { useState } from "react";
-
-import { uid } from "uid";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { uid } from "uid";
+
 import LocationPermission from "../components/LocationPermission";
+import Input from "../components/Input";
+import Button from "../components/Button";
+import CameraIcon from "../../icons/CameraIcon";
+import LocationIcon from "../../icons/LocationIcon";
+import DeleteIcon from "../../icons/DeleteIcon";
+
+import { baseText, colors } from "../../styles/global";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 

@@ -1,9 +1,10 @@
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import Publication from "../components/Publication";
+import data from "../../assets/data/postData";
+
 import User from "../components/User";
 
-import data from "../assets/data/postData";
-import { colors } from "../styles/global";
+import { colors } from "../../styles/global";
 
 const PostsScreen = ({ navigation, route }) => {
   return (

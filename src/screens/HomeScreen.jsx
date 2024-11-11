@@ -1,4 +1,5 @@
 import { StyleSheet, TouchableOpacity, View } from "react-native";
+
 import User from "../components/User";
 
 const HomeScreen = () => {

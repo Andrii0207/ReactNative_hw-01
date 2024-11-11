@@ -1,11 +1,12 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { colors } from "../styles/global";
+
+import { colors } from "../../styles/global";
 
 const User = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/images/avatar_icon.png")}
+        source={require("../../assets/images/avatar_icon.png")}
         resizeMode="cover"
         style={styles.avatarImage}
       />

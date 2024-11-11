@@ -12,9 +12,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
-import { baseText, colors } from "../styles/global";
+
 import Input from "../components/Input";
 import Button from "../components/Button";
+
+import { baseText, colors } from "../../styles/global";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -71,7 +73,7 @@ const RegistrationScreen = ({ navigation, route }) => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={{ flex: 1 }}>
         <Image
-          source={require("../assets/images/bg_image.png")}
+          source={require("../../assets/images/bg_image.png")}
           resizeMode="cover"
           style={styles.image_bg}
         />
@@ -82,7 +84,7 @@ const RegistrationScreen = ({ navigation, route }) => {
           <View style={styles.formContainer}>
             <View style={styles.avatarWrapper}>
               <Image
-                source={require("../assets/images/avatar_icon.png")}
+                source={require("../../assets/images/avatar_icon.png")}
                 resizeMode="cover"
                 style={styles.avatarIcon}
               />

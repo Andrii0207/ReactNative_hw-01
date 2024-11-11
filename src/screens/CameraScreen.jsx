@@ -1,10 +1,12 @@
-import { CameraView, useCameraPermissions } from "expo-camera";
-import { useEffect, useRef, useState } from "react";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import CameraIcon from "../icons/CameraIcon";
-import { colors } from "../styles/global";
+import { CameraView, useCameraPermissions } from "expo-camera";
 import { useNavigation } from "@react-navigation/native";
+import { useEffect, useRef, useState } from "react";
 import * as MediaLibrary from "expo-media-library";
+
+import CameraIcon from "../../icons/CameraIcon";
+
+import { colors } from "../../styles/global";
 
 const CameraScreen = ({ route }) => {
   const [facing, setFacing] = useState("back");

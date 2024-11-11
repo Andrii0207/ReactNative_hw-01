@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
 import { Text, View, TouchableOpacity, StyleSheet, Button } from "react-native";
+import React, { useState, useRef, useEffect } from "react";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
-import { colors } from "../styles/global";
+
+import { colors } from "../../styles/global";
 
 const Camera = ({ onCapture }) => {
   const [facing, setFacing] = useState("back");

@@ -8,9 +8,11 @@ import {
     FlatList,
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
-import { colors } from "../styles/global";
-import data from "../assets/data/postData";
+import data from "../../assets/data/postData";
+
 import Publication from "../components/Publication";
+
+import { colors } from "../../styles/global";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -18,7 +20,7 @@ const ProfileScreen = () => {
     return (
         <View style={{ flex: 1 }}>
             <Image
-                source={require("../assets/images/bg_image.png")}
+                source={require("../../assets/images/bg_image.png")}
                 resizeMode="cover"
                 style={styles.image_bg}
             />
@@ -26,7 +28,7 @@ const ProfileScreen = () => {
             <View style={styles.formContainer}>
                 <View style={styles.avatarWrapper}>
                     <Image
-                        source={require("../assets/images/avatar_icon.png")}
+                        source={require("../../assets/images/avatar_icon.png")}
                         resizeMode="cover"
                         style={styles.avatarIcon}
                     />
