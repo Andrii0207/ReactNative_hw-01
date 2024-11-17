@@ -1,9 +1,11 @@
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import CommentsIcon from "../icons/CommentsIcon";
-import { baseText, colors } from "../styles/global";
-import LikesIcon from "../icons/LikesIcon";
-import LocationIcon from "../icons/LocationIcon";
 import { useNavigation } from "@react-navigation/native";
+
+import CommentsIcon from "../../icons/CommentsIcon";
+import LikesIcon from "../../icons/LikesIcon";
+import LocationIcon from "../../icons/LocationIcon";
+
+import { baseText, colors } from "../../styles/global";
 
 const Publication = ({ image, title, location, comments, likes = 0 }) => {
   const navigation = useNavigation();

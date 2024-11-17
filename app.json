@@ -4,6 +4,7 @@
     "slug": "ReactNative_hw-01",
     "version": "1.0.0",
     "orientation": "portrait",
+    "newArchEnabled": true,
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

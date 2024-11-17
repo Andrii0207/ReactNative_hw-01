@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, View } from "react-native";
-import { baseText, colors } from "../styles/global";
+import { baseText, colors } from "../../styles/global";
 import { useState } from "react";
 
 const Input = ({

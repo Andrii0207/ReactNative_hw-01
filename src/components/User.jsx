@@ -1,11 +1,11 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { colors } from "../styles/global";
+import { colors } from "../../styles/global";
 
 const User = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/images/avatar_icon.png")}
+        source={require("../../assets/images/avatar_icon.png")}
         resizeMode="cover"
         style={styles.avatarImage}
       />
@@ -38,12 +38,10 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 13,
     fontWeight: "700",
-    lineHeight: "normal",
     color: colors.black_primary,
   },
   userEmail: {
     fontSize: 11,
-    lineHeight: "normal",
     color: (33, 33, 33, 0.8),
   },
 });

@@ -1,8 +1,8 @@
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useEffect, useRef, useState } from "react";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import CameraIcon from "../icons/CameraIcon";
-import { colors } from "../styles/global";
+import CameraIcon from "../../icons/CameraIcon";
+import { colors } from "../../styles/global";
 import { useNavigation } from "@react-navigation/native";
 import * as MediaLibrary from "expo-media-library";
 

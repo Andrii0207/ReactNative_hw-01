@@ -12,9 +12,9 @@ import {
   View,
 } from "react-native";
 
-import { baseText, colors } from "../styles/global";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { baseText, colors } from "../../styles/global";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -47,7 +47,7 @@ const LoginScreen = ({ navigation, route }) => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={{ flex: 1 }}>
         <Image
-          source={require("../assets/images/bg_image.png")}
+          source={require("../../assets/images/bg_image.png")}
           resizeMode="cover"
           style={styles.image}
         />
