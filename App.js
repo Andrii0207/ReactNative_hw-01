@@ -44,7 +44,5 @@ export default function App() {
         </NavigationContainer>
       </PersistGate>
     </Provider>
-
-
-  );
+  )
 }
