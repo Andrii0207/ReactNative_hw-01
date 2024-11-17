@@ -3,17 +3,21 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
-// import { NavigationContainer } from "@react-navigation/natrive";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Provider } from "react-redux";
-import store from "./src/redux/store/store";
 import { PersistGate } from "redux-persist/integration/react";
+
+import store from "./src/redux/store/store";
 import LoginScreen from "./src/screens/LoginScreen";
 import CommentsScreen from "./src/screens/CommentsScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import RegistrationScreen from "./src/screens/RegistrationScreen";
-// import StackNavigator from "./src/navigation/StackNavigator";
+import CameraScreen from "./src/screens/CameraScreen";
+import CreatePostsScreen from "./src/screens/CreatePostsScreen";
+import MapScreen from "./src/screens/MapScreen";
+import StackNavigator from "./src/navigation/StackNavigator";
 
 SplashScreen.preventAutoHideAsync();
 const MainStack = createStackNavigator();
@@ -38,19 +42,16 @@ export default function App() {
 
   return (
 
-    <RegistrationScreen />
-
-
-    // <Provider store={store.store}>
-    //   <PersistGate
-    //     loading={<Text>Loading...</Text>}
-    //     persistor={store.persistor}
-    //   >
-    //     <NavigationContainer>
-    //       <StatusBar style="auto" />
-    //       {/* <StackNavigator /> */}
-    //     </NavigationContainer>
-    //   </PersistGate>
-    // </Provider>
+    <Provider store={store.store}>
+      <PersistGate
+        loading={<Text>Loading...</Text>}
+        persistor={store.persistor}
+      >
+        <NavigationContainer>
+          <StatusBar style="auto" />
+          <StackNavigator />
+        </NavigationContainer>
+      </PersistGate>
+    </Provider>
   )
 }
